@@ -1,0 +1,492 @@
+@use "variables" as var;
+@use 'mixins' as mx;
+
+
+
+
+
+
+
+
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: var.$preto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.caixa1 {
+    flex: 1;
+    color: var.$cinza;
+    display: flex;
+    align-items:baseline;
+    padding-top: 8px;
+}
+
+.caixa1 .icons{
+    width:280px;
+    height:112px;
+    background: var.$cinza;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:baseline;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.caixa1 .icons i {
+    color: var.$branco;
+    margin-right: 10px;
+}
+.caixa1 .icons samp {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    padding-left: 8px; 
+}
+
+.caixa1 .icons .botao {
+    background-color: transparent;
+    border: none;
+    
+}
+
+.caixa1 .botao:hover::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: var.$branco; /* Cor da linha */
+    transition: width 0.3s ease-in-out;
+    width: 100%;
+}
+ 
+
+.caixa2 {
+    flex: 1;
+    color:var.$cinza;
+    display: flex;
+    align-items:baseline;
+    padding-top: 8px;
+}
+
+.caixa2 .icons2{
+    width:280px;
+    height: 60px;
+    background: var.$cinza;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+    align-items:baseline;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.caixa2 .icons2 i {
+    color: var.$branco;
+    margin-right: 10px;
+}
+.caixa2 .icons2 samp {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    padding-left: 8px; 
+}
+
+.caixa2 .icons2 .botao {
+    background-color: transparent;
+    border: none;
+    
+}
+
+.seta {
+    padding-left: 30px;
+}
+
+.botao {
+    transition: transform 0.3s ease-in-out;
+}
+
+.botao:hover {
+    transform: scale(1.1);
+}
+
+.espaco {
+    margin-left: 8px;
+}
+
+.caixa3 {
+    flex: 1;
+    color: var.$cinza;
+    display: flex;
+    align-items:baseline;
+}
+
+.caixa3 .playlist{
+    width:280px;
+    height: 80px;
+    background: var.$cinza;
+    display: flex;
+    flex-direction: row ;
+    align-items:baseline;
+    padding: 20px;
+    box-sizing: border-box;   
+}
+
+.caixa3 .playlist .botao2{
+    background-color: var.$cinza2;
+    color: var.$branco;
+    border: transparent;
+    border-radius: 20px;
+    height: 30px;
+    width: 60px;
+    margin-right: 5px;
+}
+.caixa4 {
+    flex: 1;
+    color: var.$cinza;
+    display: flex;
+    align-items:baseline;
+}
+
+.caixa4 .musica{
+    width:280px;
+    height: 250px;
+    background: var.$cinza;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    flex-direction: column ;
+    align-items:baseline;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.caixa4 .musica::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+}
+
+/* Estiliza o "thumb" (a parte móvel da barra de rolagem) */
+.caixa4 .musica::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* Cor semi-transparente */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estiliza o "track" (a parte fixa da barra de rolagem) */
+.caixa4 .musica ::-webkit-scrollbar-track {
+    background: transparent; /* Cor transparente */
+}
+.caixa4 .musica .ftmusica {
+    width: 40px;
+}
+
+.caixa4 .musica .autor {
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa4 .musica  .autor div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.caixa4 .musica .autor .playlist {
+    margin-bottom: 5px;
+}
+
+
+.botao-musica {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var.$branco;
+    margin-bottom: 20px;
+}
+
+.botao-musica div {
+    margin-left: 10px;
+}
+
+.botao-musica .playlist, .botao-musica .artista {
+    margin: 0;
+}
+
+.cabeca {
+    flex: 2;
+    color: var.$cinza;
+    display: flex;
+}
+
+
+.navegacao-topo {
+    
+    position: fixed;
+    top: 8px;
+    left: 296px;
+    right: 296px;
+    padding: 10px;
+    z-index: 1000; /* para garantir que esteja acima dos outros elementos */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    flex-direction: row ;
+    box-sizing: border-box;
+    background: var.$cinza;
+  }
+
+  .esquerda, .direita {
+    border-radius: 20px;
+    margin-right: 5px;
+    background:  rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    color: var.$branco;
+  }
+
+  .navegacao-topo .text .b1 {
+     background-color: var.$branco;
+     color: var.$preto;
+     border-radius: 20px;
+     border: transparent;
+  }
+
+  .navegacao-topo .text .b2{
+    background-color: var.$cinza2;
+    color: var.$branco;
+    border-radius: 20px;
+    border: transparent;
+  }
+
+ .b1 {
+    margin-left: 330px;
+    margin-right: 15px;
+ }
+
+ .b2 {
+    margin-right: 15px;
+ }
+
+
+.navegacao-topo .icon {
+    margin-left: 16px;
+}
+
+.sino , .R {
+    border-radius: 20px;
+    margin-right: 5px;
+    background:  rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    color: var.$branco;
+}
+
+.sino {
+   margin-right: 10px;
+}
+
+
+.principal {
+    position:absolute;
+    top: 45px;
+    left: 296px;
+    right: 296px;
+    padding: 10px;
+    z-index: 1000; /* para garantir que esteja acima dos outros elementos */
+    height: 473px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    box-sizing: border-box;
+    background: var.$cinza;
+    overflow-y: auto;
+}
+
+.principal::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+}
+
+/* Estiliza o "thumb" (a parte móvel da barra de rolagem) */
+.principal::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* Cor semi-transparente */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estiliza o "track" (a parte fixa da barra de rolagem) */
+.principal::-webkit-scrollbar-track {
+    background: transparent; /* Cor transparente */
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.principal .itens {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.principal .itens .imagem {
+    display: flex;
+    height: 100px;
+    margin-left: 80px;
+  }
+
+  .principal .itens .imagem .opa{
+    margin-right: 40px;
+  }
+
+  .principal .itens .imagem .opa2 {
+      height: 100px;
+  }
+
+  .principal .itens .imagem button {
+    border: transparent;
+    background-color: transparent;
+  }
+
+h1 {
+    color: var.$branco;
+}
+
+h4 {
+   margin-right: 40px;
+   color: var.$branco;
+}
+
+.fila{
+    position:absolute;
+    top: 8px;
+    left: 1080px;
+    right: 8px;
+    padding: 10px;
+    z-index: 1000; /* para garantir que esteja acima dos outros elementos */
+    width:280px;
+    height: 230px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background: var.$cinza;
+}
+
+.fila .text2 {
+   color: var.$branco;
+}
+
+.fila .tocando .ftmusica {
+    height: 100px ;
+}
+
+.fila2{
+    position:absolute;
+    top: 238px;
+    left: 1080px;
+    right: 8px;
+    padding: 10px;
+    z-index: 1000; /* para garantir que esteja acima dos outros elementos */
+    width:280px;
+    height:280px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    box-sizing: border-box;
+    background: var.$cinza;
+}
+
+.toque {
+   display: flex;
+   flex-direction: row;
+
+}
+
+.toque .tocando .ftmusica {
+    height: 60px ;
+    padding-top: 16px;
+    margin-top: 4px;
+    margin-left: 16px;
+}
+
+.toque .play {
+    color: var.$branco;
+    background-color: transparent;
+    display: flex; /* Habilita flexbox */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    margin-left: 435px;
+    margin-top: 30px;
+}
+
+.toque .play i {
+    font-size: 24px; /* Ajuste o tamanho dos ícones */
+    margin-right: 20px; /* Adicione margem à direita para separar os ícones */
+}
+
+.toque .controles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.toque .linha {
+    width:350px;
+    height:8px;
+    background-color: var.$cinza2;
+    border-radius: 8px;
+    margin-left: 410px;
+    margin-top: 8px;
+    margin: 0 10px; /* Adiciona uma margem à esquerda e à direita da linha */
+}
+
+.tempo {
+    color: var.$branco;
+}
+
+.toque .linha-tempo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px; /* Ajuste conforme necessário */
+    margin-left: 410px;
+}
+
+.toque .tempo {
+    margin: 10px 0; /* Adiciona uma margem acima e abaixo do texto do tempo */
+}
+
+.geilson {
+    margin-left: 200px;
+    margin-top: 30px;
+}
+
+.geilson i {
+    color: var.$branco;
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.geilson .linha2 {
+    width:100px;
+    height:8px;
+    background-color: var.$cinza2;
+    border-radius: 8px;
+    margin-left: 35px;
+    margin-top: -15px;
+
+}
